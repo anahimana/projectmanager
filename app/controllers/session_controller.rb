@@ -4,8 +4,8 @@ class SessionController < ApplicationController
   end
 
   post '/sessions' do
-    login(params[:id])
-    redirect '/posts'
+    login(params[:user][:email])
+    redirect '/projects'
   end
 
 
