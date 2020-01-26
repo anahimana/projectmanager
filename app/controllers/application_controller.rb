@@ -12,4 +12,8 @@ class ApplicationController < Sinatra::Base
       !!session[:id]
     end
 
+    def login(id)
+      session[:id] = id
+    end
+
 end
