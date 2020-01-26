@@ -16,4 +16,10 @@ class ApplicationController < Sinatra::Base
       session[:id] = id
     end
 
+    def logout!
+      session.clear
+    end
+  end
+
+
 end
