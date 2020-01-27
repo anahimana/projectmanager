@@ -7,6 +7,10 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "#{ENV['SESSION_SECRET']}"
   end
 
+  get '/' do
+    redirect '/projects'
+  end
+
   helpers do
 
     def current_user
