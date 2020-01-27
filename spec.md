@@ -40,9 +40,48 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true, on: :create
 end
 ```
-- [ ] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
-- [ ] Ensure that users can't modify content created by other users
-- [ ] Include user input validations
+- [x] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
+Create project route
+```ruby
+post '/projects' do
+    project = current_user.projects.build(params[:project])
+    project.save # Save new project
+    redirect '/projects'
+end
+```
+
+Read project route
+```ruby
+get '/projects/:id' do
+  @project = current_user.projects.find_by(id: params[:id])
+  erb :"projects/show"
+end
+```
+
+Update project route
+```ruby
+put '/projects/:id/edit' do
+  project = current_user.projects.find_by(id: params[:id])
+  project.update(params[:project])
+  redirect "/projects/#{project.id}"
+end
+```
+
+Delete/Destroy project route
+```ruby
+delete '/projects/:id/delete' do
+  @project = current_user.projects.find_by(id: params[:id])
+  @project.destroy
+  redirect '/projects'
+end
+```
+
+- [x] Ensure that users can't modify content created by other users
+All routes are projected with a #logged_in? helper
+
+- [x] Include user input validations
+Minimal validates are added on server side. Form inputs have been give a required attribute to implement client side validation before posting to server.
+
 - [ ] BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new)
 - [ ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
 
