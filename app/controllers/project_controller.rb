@@ -10,7 +10,8 @@ class ProjectController < ApplicationController
 
   post '/projects' do
     if logged_in?
-      current_user.projects.build(params[:project])
+      project = current_user.projects.build(params[:project])
+      project.save # Save new project
       erb :'/projects/list'
     else
       redirect '/login'
