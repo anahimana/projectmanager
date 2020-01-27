@@ -8,6 +8,15 @@ class ProjectController < ApplicationController
     end
   end
 
+  post '/projects' do
+    if logged_in?
+      current_user.projects.build(params[:project])
+      erb :'/projects/list'
+    else
+      redirect '/login'
+    end
+  end
+
   get '/projects/new' do
     if logged_in?
       erb :'/projects/new'
