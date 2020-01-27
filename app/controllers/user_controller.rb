@@ -4,10 +4,8 @@ class UserController < ApplicationController
   end
 
   post '/users' do
-    @user = User.new
-    @user.email = params[:email]
-    @user.password = params[:password]
-    if @user.save
+    @user = User.create(params[:user])
+    if @user.valid?
       redirect '/login'
     else
       erb :"users/new"
