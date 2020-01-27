@@ -1,0 +1,10 @@
+List of Projects
+
+<% @projects.each do |project| %>
+<ul class="project">
+  <li><%= project.name%></li>
+  <li><%= project.description%></li>
+  <li><%= project.created_at%></li>
+  <li><%= project.updated_at%></li>
+</ul>
+<% end %>
