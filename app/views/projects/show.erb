@@ -1,0 +1,10 @@
+<% if @project.nil? %>
+  <p>Project does not exist...</p>
+<% else %>
+<div class="project">
+  <h1><%= @project.name %></h1>
+  <p><strong>Description</strong>: <%= @project.description %></p>
+  <p><strong>Crated Date Time</strong>: <%= @project.created_at %></p>
+  <p><strong>Last Modified Date Time</strong>: <%= @project.updated_at %></p>
+</div>
+<% end %>
