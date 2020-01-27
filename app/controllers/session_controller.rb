@@ -14,5 +14,8 @@ class SessionController < ApplicationController
     redirect '/login'
   end
 
+  get '/back' do
+    redirect back
+  end
 
 end
