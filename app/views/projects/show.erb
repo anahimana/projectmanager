@@ -8,9 +8,14 @@
   <p><strong>Last Modified Date Time</strong>: <%= @project.updated_at %></p>
 </div>
 <div class="actions">
+  <form id="delete" method="post">
+    <input type="hidden" name="_method" value="DELETE">
+  </form>
   <ul>
     <li><a href="/projects/<%= @project.id %>/edit">Update</a></li>
-    <li><a href="/projects/<%= @project.id %>/delete">Delete</a></li>
+    <li>
+      <button type="submit" form="delete" formaction="/projects/<%= @project.id %>/delete" name="delete">Delete</button>
+    </li>
   </ul>
 </div>
 <% end %>
