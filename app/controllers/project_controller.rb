@@ -1,6 +1,11 @@
 class ProjectController < ApplicationController
   get '/projects' do
-    (logged_in?) ? ("List of projects") : (redirect '/login')
+    if logged_in?
+      @projects = current_user.projects.all
+      erb :'/projects/list'
+    else
+      redirect '/login'
+    end
   end
 
   get '/projects/new' do
