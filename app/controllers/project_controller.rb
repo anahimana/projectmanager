@@ -9,7 +9,11 @@ class ProjectController < ApplicationController
   end
 
   get '/projects/new' do
-    (logged_in?) ? ("New post form") : (redirect '/login')
+    if logged_in?
+      erb :'/projects/new'
+    else
+      redirect '/login'
+    end
   end
 
   get '/projects/:id/edit' do
