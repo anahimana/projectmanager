@@ -33,7 +33,13 @@ class Project < ActiveRecord::Base
   belongs_to :user
 end
 ```
-- [ ] Include user accounts with unique login attribute (username or email)
+- [x] Include user accounts with unique login attribute (username or email)
+We added validation to the user model to check against existing objects on create
+```ruby
+class User < ActiveRecord::Base
+  validates :email, uniqueness: true, on: :create
+end
+```
 - [ ] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
 - [ ] Ensure that users can't modify content created by other users
 - [ ] Include user input validations
