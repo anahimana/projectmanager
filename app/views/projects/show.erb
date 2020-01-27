@@ -7,4 +7,10 @@
   <p><strong>Crated Date Time</strong>: <%= @project.created_at %></p>
   <p><strong>Last Modified Date Time</strong>: <%= @project.updated_at %></p>
 </div>
+<div class="actions">
+  <ul>
+    <li><a href="/projects/<%= @project.id %>/edit">Update</a></li>
+    <li><a href="/projects/<%= @project.id %>/delete">Delete</a></li>
+  </ul>
+</div>
 <% end %>
