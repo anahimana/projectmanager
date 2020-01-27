@@ -14,7 +14,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def logged_in?
-      !!current_user[:email]
+      !!current_user
     end
 
     def login(email, password)
