@@ -8,7 +8,18 @@ class ProjectController < ApplicationController
   end
 
   get '/projects/:id/edit' do
-    (logged_in?) ? ("Edit post form") : (redirect '/login')
+    if !logged_in?
+      redirect '/login'
+    else
+      # Retrieve project for current user
+      @project = current_user.projects.find_by(id: params[:id])
+      if @project
+        "Editing project #{@project.name}"
+      else
+        redirect '/projects'
+      end
+    end
+
   end
 
 end
