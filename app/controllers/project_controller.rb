@@ -18,18 +18,19 @@ class ProjectController < ApplicationController
     end
   end
 
-  get '/projects/:id' do
+  get '/projects/new' do
     if logged_in?
-      @project = current_user.projects.find_by(id: params[:id])
-      erb :"projects/show"
+      erb :'/projects/new'
     else
       redirect '/login'
     end
   end
 
-  get '/projects/new' do
+
+  get '/projects/:id' do
     if logged_in?
-      erb :'/projects/new'
+      @project = current_user.projects.find_by(id: params[:id])
+      erb :"projects/show"
     else
       redirect '/login'
     end
