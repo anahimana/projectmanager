@@ -12,6 +12,7 @@
     <input type="hidden" name="_method" value="DELETE">
   </form>
   <ul>
+    <li><a href="/projects">Back to Projects</a></li>
     <li><a href="/projects/<%= @project.id %>/edit">Update</a></li>
     <li>
       <button type="submit" form="delete" formaction="/projects/<%= @project.id %>/delete" name="delete">Delete</button>
