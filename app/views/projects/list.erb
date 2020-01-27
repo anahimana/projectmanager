@@ -1,4 +1,4 @@
-List of Projects
+<h1>List of Projects</h1>
 
 <% @projects.each do |project| %>
 <ul class="project">
@@ -8,3 +8,7 @@ List of Projects
   <li><%= project.updated_at%></li>
 </ul>
 <% end %>
+
+<div>
+  <a href="/projects/new">Add new project</a>
+</div>
