@@ -1,22 +1,17 @@
 <% if @project.nil? %>
-  <p>Project does not exist...</p>
+  <p class="tex-tecter">Project does not exist...</p>
 <% else %>
-<div class="project">
-  <h1><%= @project.name %></h1>
-  <p><strong>Description</strong>: <%= @project.description %></p>
-  <p><strong>Crated Date Time</strong>: <%= @project.created_at %></p>
-  <p><strong>Last Modified Date Time</strong>: <%= @project.updated_at %></p>
-</div>
-<div class="actions">
-  <form id="delete" method="post">
-    <input type="hidden" name="_method" value="DELETE">
-  </form>
-  <ul>
-    <li><a href="/projects">Back to Projects</a></li>
-    <li><a href="/projects/<%= @project.id %>/edit">Update</a></li>
-    <li>
-      <button type="submit" form="delete" formaction="/projects/<%= @project.id %>/delete" name="delete">Delete</button>
-    </li>
-  </ul>
+<form id="delete" method="post">
+  <input type="hidden" name="_method" value="DELETE">
+</form>
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= @project.name %></h5>
+    <p class="card-text"><%= @project.description %></p>
+    <a href="/projects" class="card-link">Back to Projects</a>
+    <a href="/projects/<%= @project.id %>/edit" class="card-link">Update</a>
+    <button type="submit" class="btn btn-primary" form="delete" formaction="/projects/<%= @project.id %>/delete" name="delete">Delete</button>
+  </div>
 </div>
 <% end %>
