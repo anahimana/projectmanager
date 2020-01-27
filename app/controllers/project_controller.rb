@@ -26,18 +26,12 @@ class ProjectController < ApplicationController
   end
 
   get '/projects/:id/edit' do
-    if !logged_in?
-      redirect '/login'
-    else
-      # Retrieve project for current user
+    if logged_in?
       @project = current_user.projects.find_by(id: params[:id])
-      if @project
-        "Editing project #{@project.name}"
-      else
-        redirect '/projects'
-      end
+      erb :"projects/edit"
+    else
+      redirect '/login'
     end
-
   end
 
 end
