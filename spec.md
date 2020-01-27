@@ -2,10 +2,37 @@
 
 Specs:
 - [x] Use Sinatra to build the app
-- [ ] Use ActiveRecord for storing information in a database
-- [ ] Include more than one model class (e.g. User, Post, Category)
-- [ ] Include at least one has_many relationship on your User model (e.g. User has_many Posts)
-- [ ] Include at least one belongs_to relationship on another model (e.g. Post belongs_to User)
+We are inherit from Sinatra::Base to create an app with minimum effort.
+```ruby
+class ApplicationController < Sinatra::Base; end
+```
+
+- [x] Use ActiveRecord for storing information in a database
+Models inherit from ActiveRecord::Base
+```ruby
+class User < ActiveRecord::Base; end
+```
+- [x] Include more than one model class (e.g. User, Post, Category)
+For the project management app, we have a user and project model.
+``` ruby
+class User < ActiveRecord::Base; end
+class Project < ActiveRecord::Base; end
+```
+
+- [x] Include at least one has_many relationship on your User model (e.g. User has_many Posts)
+In our domain, the user has many projects.
+```ruby
+class User < ActiveRecord::Base
+  has_many :projects
+end
+```
+- [x] Include at least one belongs_to relationship on another model (e.g. Post belongs_to User)
+Since the user has_many projects, the project model has the foreign key to the user model
+```ruby
+class Project < ActiveRecord::Base
+  belongs_to :user
+end
+```
 - [ ] Include user accounts with unique login attribute (username or email)
 - [ ] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
 - [ ] Ensure that users can't modify content created by other users
