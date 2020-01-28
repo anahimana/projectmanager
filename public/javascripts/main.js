@@ -43,6 +43,9 @@ function sendData( data ) {
   XHR.send( urlEncodedData );
 }
 
-deleteButton.addEventListener( 'click', function(event) {
-  sendData();
-} )
+// EVENT LISTENERS
+if(deleteButton){
+  deleteButton.addEventListener( 'click', function(event) {
+    sendData();
+  } );
+}
