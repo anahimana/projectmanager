@@ -15,14 +15,15 @@
   </head>
   <body>
 
-    <% if !["/login", "/signup"].include? request.path_info %>
-    <!-- Header -->
-    <%= erb :'partials/header' %>
-    <% end %>
-
-    <!-- Main Content -->
+    <!-- Main -->
     <div class="container" role="main">
-        <%= yield %>
+      <!-- Header -->
+      <% if !["/login", "/signup"].include? request.path_info %>
+        <%= erb :'partials/header' %>
+      <% end %>
+
+      <!-- Content -->
+      <%= yield %>
     </div>
 
     <!-- scripts -->
