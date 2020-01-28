@@ -1,9 +1,6 @@
 <% if @project.nil? %>
   <p class="tex-tecter">Project does not exist...</p>
 <% else %>
-<!-- <form id="delete" method="post">
-  <input type="hidden" name="_method" value="DELETE">
-</form> -->
 
 <div class="card" style="width: 18rem;">
   <div class="card-body">
@@ -11,7 +8,6 @@
     <p class="card-text"><%= @project.description %></p>
     <a href="/projects" class="card-link">Back to Projects</a>
     <a href="/projects/<%= @project.id %>/edit" class="card-link">Update</a>
-    <!-- <button type="submit" class="btn btn-primary" form="delete" formaction="/projects/<%= @project.id %>/delete" name="delete">Delete</button> -->
     <button type="button" id="btn-dlt" class="btn btn-primary">Delete</button>
     <button type="button" id="btn-gbk" class="btn btn-primary">Go Back</button>
   </div>
