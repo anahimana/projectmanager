@@ -1,13 +1,14 @@
-<h1 class="text-center">List of Projects</h1>
-
 <div class="container">
+<% if @projects.empty? %>
+  <p>You do not have any projects...</p>
+  <% else %>
   <% @projects.each do |project| %>
   <ol class="project">
     <li><a href="/projects/<%= project.id%>"><%= project.name%></a></li>
   </ol>
   <% end %>
+<% end %>
 </div>
-
 
 <div class="container">
   <a href="/projects/new">Add new project</a>
