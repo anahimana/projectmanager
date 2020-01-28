@@ -8,8 +8,12 @@
     <% end %>
   </ul>
   <% end %>
+  <label for="first-name" class="sr-only">First Name</label>
+  <input type="text" id="first-name" name="user[first_name]" class="form-control my-3" placeholder="First name" autofocus required>
+  <label for="last-name" class="sr-only">Last Name</label>
+  <input type="text" id="last-name" name="user[last_name]" class="form-control my-3" placeholder="Last name" required>
   <label for="inputEmail" class="sr-only">Email address</label>
-  <input type="email" name="user[email]" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+  <input type="email" name="user[email]" id="inputEmail" class="form-control" placeholder="Email address" required>
   <label for="inputPassword" class="sr-only">Password</label>
   <input type="password" name="user[password]" id="inputPassword" class="form-control my-3" placeholder="Password" required>
   <label for="confirmPassword" class="sr-only">Confirmation Password</label>
