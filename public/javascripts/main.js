@@ -1,6 +1,8 @@
 // Custom JS goes here
 
 // GLOBALS
+const prevPath = document.referrer.split("/").slice(-1)[0];
+const goBackButton = document.getElementById('btn-gbk');
 const deleteButton = document.getElementById('btn-dlt');
 const PID = window.location.href.split("/").slice(-1)[0];
 
@@ -47,5 +49,11 @@ function sendData( data ) {
 if(deleteButton){
   deleteButton.addEventListener( 'click', function(event) {
     sendData();
+  } );
+}
+
+if (goBackButton){
+  goBackButton.addEventListener( 'click', function(event) {
+    window.location.href = `${window.location.origin}/${prevPath}`;
   } );
 }
