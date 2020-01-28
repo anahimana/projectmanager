@@ -8,6 +8,10 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/journal/bootstrap.min.css">
     <link rel="stylesheet" href="/stylesheets/main.css" />
+    <% if ["/login", "/signup"].include? request.path_info %>
+    <!-- Login/Registe CSS -->
+    <link rel="stylesheet" href="/stylesheets/login-register.css" />
+    <% end %>
   </head>
   <body>
     <!-- Main Content -->
