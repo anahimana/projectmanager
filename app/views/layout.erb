@@ -14,10 +14,17 @@
     <% end %>
   </head>
   <body>
+
+    <% if !["/login", "/signup"].include? request.path_info %>
+    <!-- Header -->
+    <%= erb :'partials/header' %>
+    <% end %>
+
     <!-- Main Content -->
     <div class="container" role="main">
         <%= yield %>
     </div>
+
     <!-- scripts -->
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
