@@ -40,7 +40,7 @@ class ProjectController < ApplicationController
       if logged_in?
         @project = current_user.projects.find_by(id: params[:id])
         @project.destroy
-        redirect '/projects'
+        "/projects"
       else
         redirect '/login'
       end
