@@ -24,7 +24,8 @@ function sendData( data ) {
 
   // Define what happens on successful data submission
   XHR.addEventListener( 'load', function(event) {
-    console.log( 'Yeah! Data sent and response loaded.' );
+    // Redirect
+    window.location.href = window.location.origin + event.target.response;
   } );
 
   // Define what happens in case of error
