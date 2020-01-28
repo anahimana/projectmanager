@@ -1,9 +1,47 @@
 // Custom JS goes here
 
 // GLOBALS
-const deleteButton = document.getElementById('btn-dlt')
+const deleteButton = document.getElementById('btn-dlt');
+const PID = window.location.href.split("/").slice(-1)[0];
 
-// EVENT LISTENERS
-deleteButton.addEventListener('click', function (event) {
-  console.log(`${event.target.innerText} has been clicked!`);
-});
+// FUNCTIONS
+function sendData( data ) {
+  const XHR = new XMLHttpRequest();
+
+  let urlEncodedData = "",
+      urlEncodedDataPairs = [],
+      name;
+
+  // Turn the data object into an array of URL-encoded key/value pairs.
+  for( name in data ) {
+    console.log(name);
+    urlEncodedDataPairs.push( encodeURIComponent( name ) + '=' + encodeURIComponent( data[name] ) );
+  }
+
+  // Combine the pairs into a single string and replace all %-encoded spaces to
+  // the '+' character; matches the behaviour of browser form submissions.
+  urlEncodedData = urlEncodedDataPairs.join( '&' ).replace( /%20/g, '+' );
+
+  // Define what happens on successful data submission
+  XHR.addEventListener( 'load', function(event) {
+    console.log( 'Yeah! Data sent and response loaded.' );
+  } );
+
+  // Define what happens in case of error
+  XHR.addEventListener( 'error', function(event) {
+    console.log( 'Oops! Something went wrong.' );
+  } );
+
+  // Set up our request
+  XHR.open( 'DELETE', `/projects/${PID}/delete` );
+
+  // Add the required HTTP header for form data POST requests
+  XHR.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded' );
+
+  // Finally, send our data.
+  XHR.send( urlEncodedData );
+}
+
+deleteButton.addEventListener( 'click', function(event) {
+  sendData();
+} )
