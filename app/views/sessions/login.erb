@@ -1,15 +1,15 @@
-<h1 class="text-center">Login</h1>
-
-<div class="container mx-auto text-center" style="width: 200px;">
-  <form class="login" action="/sessions" method="post">
-    <div class="my-3">
-      <input type="email" name="email" class="text-center" placeholder="Email" required>
-    </div>
-    <div class="mb-3">
-      <input type="password" name="password" class="text-center" placeholder="Password" required>
-    </div>
-    <input type="submit" name="submit" value="submit">
-  </form>
-</div>
+<form class="login" action="/sessions" method="post">
+  <h1 class="h3 mb-3 font-weight-normal text-center">Please sign in</h1>
+  <label for="inputEmail" class="sr-only">Email address</label>
+  <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+  <label for="inputPassword" class="sr-only">Password</label>
+  <input type="password" name="password" id="inputPassword" class="form-control my-3" placeholder="Password" required>
+  <div class="checkbox mb-3">
+    <label>
+      <input type="checkbox" value="remember-me"> Remember me
+    </label>
+  </div>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+</form>
 
 <p class="my-3 text-center">Don't have an account? <a href="/signup">Sign up</a></p>
